@@ -34,25 +34,25 @@ This project implements a serverless pipeline that automatically processes files
 6. Configure S3 notification to invoke Lambda
 
 ## Testing
-Upload sample_file.csv to the S3 bucket:
+- Upload sample_file.csv to the S3 bucket:
 
 ```bash
 aws s3 cp sample_file.csv s3://<bucket-name>/uploads/sample_file.csv
 ```
-Check CloudWatch logs for rt-file-processor.
+- Check CloudWatch logs for rt-file-processor.
 
 ## Terraform usage
 ### Infrastructure as Code
 
-Use the terraform/ folder for Terraform examples, or the cdk/ folder for AWS CDK (TypeScript) to provision resources.
+- Use the terraform/ folder for Terraform examples, or the cdk/ folder for AWS CDK (TypeScript) to provision resources.
 
-Build the Lambda zip:
+- Build the Lambda zip:
 
 ```bash
 cd lambda && zip -r ../lambda_function.zip . && cd ..
 ```
 
-Then, run the following Terraform commands:
+- Then, run the following Terraform commands:
 
 ```bash
 terraform init
@@ -64,6 +64,7 @@ terraform apply -var "s3_bucket_name=my-unique-bucket-123" -var "lambda_zip_path
 - Add Step Functions for long-running transforms
 - Add RDS for relational storage
 - Add validation, schema checks, and observability dashboards
+
 
 
 
