@@ -36,34 +36,28 @@ This project implements a serverless pipeline that automatically processes files
 ## Testing
 Upload sample_file.csv to the S3 bucket:
 
-bash
-Copy code
 aws s3 cp sample_file.csv s3://<bucket-name>/uploads/sample_file.csv
 Check CloudWatch logs for rt-file-processor.
 
 ## Terraform usage
-Infrastructure as Code
+### Infrastructure as Code
 
 Use the terraform/ folder for Terraform examples, or the cdk/ folder for AWS CDK (TypeScript) to provision resources.
 
 Build the Lambda zip:
 
-bash
-Copy code
+```bash
 cd lambda && zip -r ../lambda_function.zip . && cd ..
 Then, run the following Terraform commands:
 
-bash
-Copy code
+```bash
 terraform init
 terraform apply -var "s3_bucket_name=my-unique-bucket-123" -var "lambda_zip_path=./lambda_function.zip"
 
 ## Enhancements
-Use SQS for large/batch processing
+- Use SQS for large/batch processing
+- Add Step Functions for long-running transforms
+- Add RDS for relational storage
+- Add validation, schema checks, and observability dashboards
 
-Add Step Functions for long-running transforms
-
-Add RDS for relational storage
-
-Add validation, schema checks, and observability dashboards
 
