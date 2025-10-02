@@ -36,7 +36,9 @@ This project implements a serverless pipeline that automatically processes files
 ## Testing
 Upload sample_file.csv to the S3 bucket:
 
+```bash
 aws s3 cp sample_file.csv s3://<bucket-name>/uploads/sample_file.csv
+```
 Check CloudWatch logs for rt-file-processor.
 
 ## Terraform usage
@@ -62,6 +64,7 @@ terraform apply -var "s3_bucket_name=my-unique-bucket-123" -var "lambda_zip_path
 - Add Step Functions for long-running transforms
 - Add RDS for relational storage
 - Add validation, schema checks, and observability dashboards
+
 
 
 
