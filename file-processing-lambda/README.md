@@ -48,16 +48,20 @@ Build the Lambda zip:
 
 ```bash
 cd lambda && zip -r ../lambda_function.zip . && cd ..
+```
+
 Then, run the following Terraform commands:
 
 ```bash
 terraform init
 terraform apply -var "s3_bucket_name=my-unique-bucket-123" -var "lambda_zip_path=./lambda_function.zip"
+```
 
 ## Enhancements
 - Use SQS for large/batch processing
 - Add Step Functions for long-running transforms
 - Add RDS for relational storage
 - Add validation, schema checks, and observability dashboards
+
 
 
